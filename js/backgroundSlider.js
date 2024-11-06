@@ -1,20 +1,20 @@
-const images = [
-    'img/slide1.jpg',
-    'img/slide2.jpg',
-    'img/slide3.jpg',
-    'img/slide4.jpg',
-    'img/slide5.jpg'
+const gradients = [
+    'radial-gradient(circle, #d2b48c, #8b4513)',
+    'radial-gradient(circle, #f5deb3, #a0522d)',
+    'radial-gradient(circle, #deb887, #8b4513)',
+    'radial-gradient(circle, #ffe4c4, #a52a2a)',
+    'radial-gradient(circle, #d2b48c, #5a3d1e)'
 ];
 
-let currentIndex = 0;
+let currentIndex = 0; 
 
 function changeBackground() {
-    const app = document.getElementById('app');
-    app.style.backgroundImage = `url(${images[currentIndex]})`;
-    currentIndex = (currentIndex + 1) % images.length;
-}
+    const app = document.getElementById('app'); 
+    app.style.background = gradients[currentIndex]; 
+    currentIndex = (currentIndex + 1) % gradients.length; 
+} 
 
-export function startBackgroundSlider() {
-    changeBackground();
-    setInterval(changeBackground, 8000);
+export function startBackgroundSlider() { 
+    changeBackground(); 
+    setInterval(changeBackground, 5000); 
 }
