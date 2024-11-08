@@ -6,10 +6,10 @@ const gradients = [
     'radial-gradient(circle, #d2b48c, #5a3d1e)'
 ];
 
-let currentIndex = 0; 
+let currentIndex = 0;
 
 function changeBackground() {
-    const app = document.getElementById('app'); 
+    const app = document.getElementById('root'); 
     app.style.background = gradients[currentIndex]; 
     currentIndex = (currentIndex + 1) % gradients.length; 
 } 

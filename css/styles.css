@@ -1,3 +1,4 @@
+/* declaracion de variables */
 :root {
     --title-dark: #007bff;
     --title-ligth: #1f1f3a;
@@ -6,7 +7,7 @@
     --box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
 }
 
-
+/* GLOBALES */
 * {
     font-family: 'Nunito', sans-serif;
     margin: 0;
@@ -20,7 +21,7 @@
     transition: all .2s linear;
 }
 
-#app {
+#root {
     color: var(--color-ligth);
     background-color: var(--color-dark);
     background-size: cover;
@@ -48,29 +49,109 @@ html {
     scroll-padding-top: 5, 5rem;
 }
 
-label{
+label {
     font-size: 1.4rem;
 }
 
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--color-ligth);
+}
+
+h1 {
+    font-size: 3.2rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--title-ligth);
+}
+
+p {
+    font-size: 2rem;
+    color: var(--color-dark);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 17px 50px;
+    font-size: 2.1rem;
+    color: #1e1e2a;
+    border-bottom: 1px solid #838080;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: var(--color-ligth);
+    color: var(--color-dark);
+}
+
+.mini-container {
+    width: 50vw;
+    min-width: 300px;
+    height: 70vh;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, .400);
+    border: 2px solid #fff;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 4rem auto;
+    overflow-y: auto;
+}
+
+/* Estilo para el scroll */
+.mini-container::-webkit-scrollbar {
+    width: 12px;
+    /* Ancho del scroll */
+}
+
+.mini-container::-webkit-scrollbar-track {
+    background: transparent;
+    /* Color del fondo del track */
+    border-radius: 10px;
+    /* Bordes redondeados */
+}
+
+.mini-container::-webkit-scrollbar-thumb {
+    background: var(--title-dark);
+    /* Color del scroll */
+    border-radius: 40px;
+    /* Bordes redondeados */
+}
+
+.mini-container::-webkit-scrollbar-thumb:hover {
+    background: var(--title-ligth);
+    /* Color del scroll al pasar el mouse */
+}
+
+/* HEADER */
 #menu-bar {
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
     padding: 1.7rem 7%;
-    background-color: var(--title-ligth);
+    background-color: var(--color-dark);
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 10000;
 }
 
+/* logo */
 #menu-bar .logo {
     font-size: 2.5rem;
     font-weight: bolder;
     cursor: pointer;
+    color: var(--color-ligth);
 }
 
+/* menuitem */
 #menu-bar .menu-items a {
     font-size: 1.7rem;
     border-radius: .5rem;
@@ -82,6 +163,7 @@ label{
     background-color: var(--title-dark);
 }
 
+/* search */
 .search {
     display: flex;
 }
@@ -123,138 +205,7 @@ label{
     font-size: 1.5rem;
 }
 
-/* inicio */
-.comment{
-    margin-top: 3rem;
-    text-align: center;
-    padding: 0 40px;
-}
-.comment h3{
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--color-dark);
-}
-
-/* contenido principal */
-#content h1 {
-    color: var(--color-dark);
-    font-size: 3rem;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    padding: 17px 50px;
-    font-size: 2.1rem;
-    color: #1e1e2a;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-}
-
-li:hover {
-    background-color: var(--color-ligth);
-    color: var(--color-dark);
-}
-
-#content {
-    width: 80vw;
-    max-width: 660px;
-    min-width: 300px;
-    height: 70vh;
-    padding: 10px 10px;
-    /* padding: 20px 80px; */
-    background-color: rgba(255, 255, 255, .400);
-    border: 2px solid #fff;
-    border-radius: 25px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 4rem auto;
-    text-align: center;
-    position: relative;
-    overflow-y: auto;
-}
-
-/* Estilo para el scroll */
-#content::-webkit-scrollbar {
-    width: 12px;
-    /* Ancho del scroll */
-}
-
-#content::-webkit-scrollbar-track {
-    background: transparent;
-    /* Color del fondo del track */
-    border-radius: 10px;
-    /* Bordes redondeados */
-}
-
-#content::-webkit-scrollbar-thumb {
-    background: var(--title-dark);
-    /* Color del scroll */
-    border-radius: 40px;
-    /* Bordes redondeados */
-}
-
-#content::-webkit-scrollbar-thumb:hover {
-    background: var(--title-ligth);
-    /* Color del scroll al pasar el mouse */
-}
-
-#content h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-#content .welcome-message {
-    font-size: 2.2em;
-    color: #555;
-}
-
-#content h2 {
-    font-size: 32px;
-    font-weight: bold;
-    font-family: cursive;
-    color: var(--title-ligth);
-
-}
-
-#content p {
-    font-size: 23px;
-    color: #1e1e2a;
-    text-align: center;
-    padding: 5px 0;
-
-}
-
-#back-button {
-    position: absolute;
-    top: -6rem;
-    right: 0.5rem;
-    background-color: var(--title-dark);
-    color: var(--color-ligth);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#back-button:hover {
-    background-color: #0056b3;
-}
-
-/* favoritos */
-.heart-icon {
-    cursor: pointer;
-    color: grey;
-    margin-left: 10px;
-}
-
-.heart-icon.favorited {
-    color: red;
-}
-
-/* Seccion de personales */
+/* dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -283,8 +234,62 @@ li:hover {
     display: block;
 }
 
-/* Ventana crear o editar personales */
-form {
+
+
+
+/* MAIN */
+/* bienvenids */
+#welcome-content {
+    text-align: center;
+    color: var(--title-ligth);
+}
+
+.welcome-message {
+    margin-top: 2rem;
+}
+
+/* comentarios */
+
+/* cantos-content */
+.content_cantos {
+    text-align: center;
+}
+
+.content_cantos p{
+    margin: 15px 10px;
+}
+
+/* favoritos-content */
+.favoritos-content {
+    text-align: center;
+}
+
+.heart-icon {
+    cursor: pointer;
+    color: grey;
+    margin-left: 10px;
+}
+
+.heart-icon.favorited {
+    color: red;
+}
+
+/* personal-songs-content */
+.personal-songs-content {
+    position: relative;
+    text-align: center;
+    color: var(--color-dark);
+}
+
+.personal-songs-content h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* {
+
+} */
+.personal-song-form-content form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -298,14 +303,14 @@ form {
     margin: 0 auto;
 }
 
-form label {
+.personal-song-form-content form label {
     color: black;
     font-weight: bold;
     align-self: flex-start;
 }
 
-form input[type="text"],
-form textarea {
+.personal-song-form-content form input[type="text"],
+.personal-song-form-content form textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -313,12 +318,12 @@ form textarea {
     font-size: 16px;
 }
 
-form textarea {
+.personal-song-form-content form textarea {
     height: 150px;
     resize: vertical;
 }
 
-form button {
+.personal-song-form-content form button {
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
@@ -328,12 +333,31 @@ form button {
     font-size: 16px;
 }
 
-form button:hover {
+.personal-song-form-content form button:hover {
     background-color: #0056b3;
 }
 
+/* contact-content */
+#contact-content {
+    text-align: center;
+    color: var(--color-dark);
+}
+
+#contact-content p {
+    color: var(--color-dark);
+}
+
+/* comments-content */
+#comments-content {
+    text-align: center;
+    color: var(--color-dark);
+}
+
+/* boton de regreso */
 #back-button {
-    margin-top: 20px;
+    position: absolute;
+    top: 5px;
+    left: 10px;
     padding: 10px 20px;
     background-color: #6c757d;
     color: white;
@@ -347,29 +371,7 @@ form button:hover {
     background-color: #5a6268;
 }
 
-
-/* Estilos del menu y responsive */
-/* #menu-bar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #333;
-    color: white;
-    padding: 10px;
-}
-
-#menu-bar .logo {
-    margin-right: auto;
-}
-
-#menu-bar .menu-items {
-    display: flex;
-    gap: 20px;
-}
-
-#menu-bar .search {
-    margin-left: auto;
-} */
-
+/* eslilos del menu hamburguesa */
 .burger-menu {
     display: none;
     flex-direction: column;
@@ -415,6 +417,10 @@ form button:hover {
     display: flex;
 }
 
+
+
+
+/* RESPONSIVE */
 @media (max-width: 769px) {
     #menu-bar .menu-items {
         display: none;
@@ -429,9 +435,9 @@ form button:hover {
         width: 70%;
     }
 
-    #content {
+    .mini-container {
         width: 90vw;
-        height: 75vh;
+        font-size: 50.5%;
     }
 }
 
@@ -449,72 +455,12 @@ form button:hover {
         width: 80%;
     }
 
-    .comment{
+    .comment {
         padding: 0;
     }
 
-    #content {
+    .mini-container {
         width: 95vw;
-        height: 75vh;
+        font-size: 40.5%;
     }
-}
-
-/* contanto */
-
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    background-color: var(--color-ligth);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 95%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact-info img.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.contact-info p {
-    font-size: 1.2em;
-    color: #333;
-}
-
-.contact-info .social-links {
-    display: flex;
-    gap: 15px;
-}
-
-.contact-info .social-links a img {
-    width: 30px;
-    height: 30px;
-}
-
-.contact-info h3 {
-    margin-top: 20px;
-}
-
-.contact-info ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.contact-info ul li {
-    margin: 5px 0;
-}
-
-.contact-info ul li a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.contact-info ul li a:hover {
-    text-decoration: underline;
 }
