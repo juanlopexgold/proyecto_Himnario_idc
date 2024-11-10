@@ -1,3 +1,4 @@
+// import { loadComments } from "./comments.js";
 import { showWelcomeMessage } from "./WelcomeMessage.js";
 
 export function Main() {
@@ -7,6 +8,7 @@ export function Main() {
 
     // Inicialmente muestra el mensaje de bienvenida
     main.appendChild(showWelcomeMessage());
+    // main.appendChild(loadComments());
 
     return main;
 }

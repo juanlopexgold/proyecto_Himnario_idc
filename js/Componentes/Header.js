@@ -17,25 +17,19 @@ export function Header() {
     const sideMenu = document.createElement('div');
     sideMenu.className = 'side-menu';
     sideMenu.appendChild(MenuItems());
-    sideMenu.appendChild(Search());
+    sideMenu.appendChild(Search('SideMenu'));
 
     menuBar.appendChild(Logo());
     menuBar.appendChild(MenuItems());
-    menuBar.appendChild(Search());
+    menuBar.appendChild(Search('MenuBar'));
     menuBar.appendChild(burgerMenu);
     document.body.appendChild(sideMenu);
 
     // Añadir evento de clic al menú hamburguesa
     burgerMenu.addEventListener('click', () => {
         sideMenu.classList.toggle('show');
+        burgerMenu.classList.toggle('open');
     });
-
-    // Añadir evento de clic a las opciones del menú
-    // MenuItems.forEach(option => {
-    //     option.addEventListener('click', () => {
-    //         sideMenu.classList.remove('show');
-    //     });
-    // });
 
     return menuBar;
 }  

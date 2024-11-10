@@ -7,6 +7,12 @@ export function Logo() {
     logo.addEventListener('click', (e) => {
         e.preventDefault();
         location.hash = '#/';
+
+        const sideMenu = document.querySelector('.side-menu');
+        const burgerMenu = document.querySelector('.burger-menu');
+
+        burgerMenu.classList.remove('open');
+        sideMenu.classList.remove('show');
     });
 
     return logo;

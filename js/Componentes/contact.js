@@ -1,7 +1,9 @@
 import { addTooltip } from './tooltips.js';
 
 export function loadContact() {
-    const contentDiv = document.getElementById('content');
+    const contentDiv = document.getElementById('main-content');
+    contentDiv.innerHTML = ''; // Limpiar el contenido anterior
+    contentDiv.classList.add('contact-content');
     contentDiv.innerHTML = `
       <h2>Contacto</h2>
       <div class="contact-info">

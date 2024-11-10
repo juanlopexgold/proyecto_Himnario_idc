@@ -5,7 +5,7 @@ function saveComments() {
 }
 
 export function loadComments() {
-    const contentDiv = document.getElementById('content');
+    const contentDiv = document.getElementById('main-content');
     const commentsDiv = document.createElement('div');
     if (comments.length === 0) {
         commentsDiv.innerHTML = `<h2>Comentario de usuarios: </h2>
@@ -25,7 +25,9 @@ export function loadComments() {
 }
 
 export function showCommentForm() {
-    const contentDiv = document.getElementById('content');
+    const contentDiv = document.getElementById('main-content');
+    contentDiv.innerHTML = '';
+    contentDiv.classList.add('comments-content');
     contentDiv.innerHTML = `
     <h2>Dejar un Comentario</h2>
     <form id="comment-form">
