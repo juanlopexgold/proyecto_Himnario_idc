@@ -670,6 +670,7 @@ form textarea {
 
 .contact-info h3 {
     margin-top: 20px;
+    font-size: 1.7rem;
 }
 
 .contact-info ul {
@@ -856,7 +857,7 @@ form textarea {
 
     .side-menu {
         top: 6.1rem;
-        width: 80%;
+        width: 85%;
     }
 
     .comment {
@@ -865,7 +866,7 @@ form textarea {
 
     .mini-container {
         width: 98vw;
-        /* height: 90vh; */
+        height: 85vh;
         font-size: 40.5%;
         margin: 1rem auto;
     }
@@ -914,5 +915,10 @@ form textarea {
     
     .presentation-content p {
         font-size: 1.6rem;
+    }
+
+    .contact-info h3 {
+        margin-top: 20px;
+        font-size: 1.5rem;
     }
 }
