@@ -287,11 +287,25 @@ function startPresentation() {
         const paragraphs = canto.contenido.split('\n\n').map(paragraph => `<p>${paragraph}</p>`).join('');
         contentDiv.innerHTML = `
             <div class="presentation-content">
-                <h2>${canto.titulo}</h2>
-                ${paragraphs}
+                <h2>${canto.titulo}</h2> 
+                ${paragraphs} 
+            </div> 
+            <div class="container">
+                <div class="bird-container bird-container--one">
+                    <div class="bird bird--one"></div>
+                </div>
+                <div class="bird-container bird-container--two">
+                    <div class="bird bird--two"></div>
+                </div>
+                <div class="bird-container bird-container--three">
+                    <div class="bird bird--three"></div>
+                </div>
+                <div class="bird-container bird-container--four">
+                    <div class="bird bird--four"></div>
+                </div>
             </div>
-            <button id="prev-button">◀</button>
-            <button id="next-button">▶</button>
+            <button id="prev-button">◀</button> 
+            <button id="next-button">▶</button> 
             <button id="stop-button">✖</button>
         `;
 
