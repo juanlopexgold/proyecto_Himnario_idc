@@ -39,7 +39,7 @@ export async function loadCantos() {
                 const canto = data.cantos.find(c => c.id === item.getAttribute('data-id'));
                 const paragraphs = canto.contenido.split('\n\n').map(paragraph => `<p>${paragraph}</p>`).join('');
                 contentDiv.innerHTML = `
-                    <h2>${canto.titulo}</h2>
+                    <h2>${canto.id} - ${canto.titulo}</h2>
                     ${paragraphs}
                     <button id="back-button">◀ REGRESAR</button>
                 `;
@@ -73,7 +73,7 @@ export async function loadCantos() {
                 if (canto && !presentar.some(p => p.id === cantoId)) {
                     presentar.push(canto);
                     savePresentar();
-                    console.log('Canto agregado a la lista de presentación:', canto);
+                    alert('Canto agregado a la lista de presentación:', canto);
                 }
                 e.stopPropagation(); // Evitar que el clic en el icono cargue el canto
             });
@@ -115,7 +115,7 @@ export async function loadCantos() {
                     const canto = data.cantos.find(c => c.id === item.getAttribute('data-id'));
                     const paragraphs = canto.contenido.split('\n\n').map(paragraph => `<p>${paragraph}</p>`).join('');
                     contentDiv.innerHTML = `
-                        <h2>${canto.titulo}</h2>
+                        <h2>${canto.id} - ${canto.titulo}</h2>
                         ${paragraphs}
                         <button id="back-button">◀ REGRESAR</button>
                     `;
@@ -149,7 +149,7 @@ export async function loadCantos() {
                     const canto = data.cantos.find(c => c.id === cantoId);
                     if (canto && !presentar.some(p => p.id === cantoId)) {
                         presentar.push(canto);
-                        console.log('Canto agregado a la lista de presentación:', canto);
+                        alert('Canto agregado a la lista de presentación:', canto);
                     }
                     savePresentar();
                     e.stopPropagation(); // Evitar que el clic en el icono cargue el canto
@@ -196,7 +196,7 @@ export function loadFavoritos() {
             const canto = favoritos.find(c => c.id === item.getAttribute('data-id'));
             const paragraphs = canto.contenido.split('\n\n').map(paragraph => `<p>${paragraph}</p>`).join('');
             contentDiv.innerHTML = `
-                <h2>${canto.titulo}</h2>
+                <h2>${canto.id} - ${canto.titulo}</h2>
                 ${paragraphs}
                 <button id="back-button">◀ REGRESAR</button>
             `;
@@ -287,7 +287,7 @@ function startPresentation() {
         const paragraphs = canto.contenido.split('\n\n').map(paragraph => `<p>${paragraph}</p>`).join('');
         contentDiv.innerHTML = `
             <div class="presentation-content">
-                <h2>${canto.titulo}</h2> 
+                <h2>${canto.id} - ${canto.titulo}</h2> 
                 ${paragraphs} 
             </div> 
             <div class="container">

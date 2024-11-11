@@ -33,7 +33,7 @@ export function loadPersonalSongs() {
             const canto = personalSongs.find(c => c.id === item.getAttribute('data-id'));
             const paragraphs = canto.contenido.split('\n\n').map(paragraph => `<p>${paragraph}</p>`).join('');
             contentDiv.innerHTML = `
-                <h2>${canto.titulo}</h2>
+                <h2>${canto.id} - ${canto.titulo}</h2>
                 ${paragraphs}
                 <button id="back-button">◀ REGRESAR</button>
             `;
