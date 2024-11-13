@@ -20,26 +20,16 @@ export async function loadCantos() {
         contentDiv.innerHTML = ''; // Limpiar el contenido anterior
         contentDiv.classList.add('content_cantos');
 
-
-        // console.log('Data cantos:', data.cantos);
-        // console.log('Favoritos:', favoritos);
-        // console.log('Presentar:', presentar);
-
-        const titles = data.cantos.map(canto => {
-            if (!canto || !canto.id) { 
-                console.error('Canto inválido:', canto); 
-                return ''; // O puedes manejar el error de otra manera 
-            }
-            const isFavorited = favoritos.some(fav => fav && fav.id === canto.id);
-            const isPresent = presentar.some(pre => pre && pre.id === canto.id);
-            return `
+        // Mostrar los títulos de los cantos con sus números y el icono de corazón
+        const titles = data.cantos
+            .filter(canto => canto) // Filtrar elementos nulos o indefinidos
+            .map(canto => `
                 <li data-id="${canto.id}">
                     ${canto.id} - ${canto.titulo}
-                    <span class="heart-icon ${isFavorited ? 'favorited' : ''}" data-id="${canto.id}">♥</span>
-                    <span class="play-icon ${isPresent ? 'present' : ''}" data-id="${canto.id}">▶</span>
+                    <span class="heart-icon ${favoritos.some(fav => fav.id === canto.id) ? 'favorited' : ''}" data-id="${canto.id}">♥</span>
+                    <span class="play-icon ${presentar.some(pre => pre.id === canto.id) ? 'present' : ''}"  data-id="${canto.id}">▶</span>
                 </li>
-            `;
-        }).join('');
+            `).join('');
         contentDiv.innerHTML = `<ul>${titles}</ul>`;
 
         // Agregar evento de clic a los títulos
@@ -201,18 +191,12 @@ export function loadFavoritos() {
         return;
     }
 
-    const titles = favoritos.map(canto => {
-        if (!canto || !canto.id) {
-            console.error('Canto inválido:', canto);
-            return ''; // O puedes manejar el error de otra manera
-        }
-        return `
-            <li data-id="${canto.id}">
-                ${canto.id} - ${canto.titulo}
-                <span class="heart-icon favorited" data-id="${canto.id}">♥</span>
-            </li>
-        `;
-    }).join('');
+    const titles = favoritos.map(canto => `
+    <li data-id="${canto.id}">
+      ${canto.id} - ${canto.titulo}
+      <span class="heart-icon favorited" data-id="${canto.id}">♥</span>
+    </li>
+  `).join('');
     contentDiv.innerHTML = `<ul>${titles}</ul>`;
 
     // Agregar evento de clic a los títulos de favoritos
@@ -265,7 +249,6 @@ export function loadPresentar() {
     `).join('');
     contentDiv.innerHTML = `<ul>${titles}</ul><button id="presentar-button">Iniciar Precentacion</button>`;
 
-    // console.log(presentar.id);
     // // Agregar evento de clic a los títulos de presentación
     // document.querySelectorAll('#main-content li').forEach(item => {
     //     item.addEventListener('click', (e) => {

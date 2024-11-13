@@ -1,3 +1,5 @@
+import { loadPresentar } from "./contentLoader.js";
+
 let personalSongs = JSON.parse(localStorage.getItem('personalSongs')) || [];
 
 function savePersonalSongs() {
@@ -18,6 +20,7 @@ export function loadPersonalSongs() {
         <li data-id="${canto.id}">
             ${canto.id} - ${canto.titulo}
             <span class="edit-icon" data-id="${canto.id}">✏️</span>
+            <span class="play-icon" data-id="${canto.id}">▶</span>
         </li>
     `).join('');
     contentDiv.innerHTML = `<ul>${titles}</ul>`;

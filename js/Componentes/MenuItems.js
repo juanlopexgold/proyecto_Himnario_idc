@@ -2,7 +2,13 @@ export function MenuItems() {
   const menuItems = document.createElement('nav');
   menuItems.className = 'menu-items';
   menuItems.innerHTML = `
-        <a href="#cantos">Cantos</a>
+        <div class="dropdown">
+          <p>Opciones</p>
+          <div class="dropdown-content">
+            <a href="#cantos">Cantos</a>
+            <a href="#biblia">Biblia</a>
+          </div>
+        </div>
         <div class="dropdown">
           <p>Listas</p>
           <div class="dropdown-content">

@@ -302,7 +302,7 @@ button:hover {
 }
 
 .content_cantos h2 {
-    margin-top: 3rem;
+    margin-top: 3.6rem;
     margin-bottom: 1.5rem;
 }
 
@@ -313,7 +313,7 @@ button:hover {
 }
 
 .favoritos-content h2 {
-    margin-top: 3rem;
+    margin-top: 3.6rem;
     margin-bottom: 1.5rem;
 }
 
@@ -326,6 +326,10 @@ button:hover {
 
 .heart-icon.favorited {
     color: red;
+}
+
+.play-icon.present {
+    color: green;
 }
 
 /* presentar-content */
@@ -566,11 +570,18 @@ button:hover {
 #volverPrese-button {
     display: block;
     margin: 10px auto;
+    font-size: 19px;
+    color: var(--color-ligth);
 }
 
 .presentation-finished {
     text-align: center;
     margin-top: 20px;
+}
+
+.presentation-finished p {
+    font-size: 4rem;
+    font-weight: bold;
 }
 
 
@@ -582,7 +593,7 @@ button:hover {
 }
 
 .personal-songs-content h2 {
-    margin-top: 2.5rem;
+    margin-top: 3.6rem;
     margin-bottom: 1.5rem;
 }
 
@@ -707,13 +718,13 @@ form textarea {
     position: absolute;
     top: 5px;
     left: 10px;
-    padding: 10px 20px;
+    padding: 8px 15px;
     background-color: #6c757d;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 #back-button:hover {
@@ -840,13 +851,17 @@ form textarea {
     .presentation-content h2 {
         font-size: 3rem;
     }
-    
+
     .presentation-content p {
         font-size: 2rem;
     }
 }
 
 @media (max-width: 500px) {
+    p {
+        font-size: 1.7rem;
+    }
+
     #menu-bar .search {
         display: none;
     }
@@ -869,11 +884,18 @@ form textarea {
         height: 83vh;
         font-size: 40.5%;
         margin: 1rem auto;
+        padding: 8px;
     }
 
     .mini-container li {
         padding-inline: 15px 10px;
         font-size: 1.8rem;
+    }
+
+    /* Estilo para el scroll */
+    .mini-container::-webkit-scrollbar {
+        width: 5px;
+        /* Ancho del scroll */
     }
 
     /* 
@@ -892,19 +914,28 @@ form textarea {
 
     .content_cantos {
         position: relative;
+    }
+
+    .content_cantos,
+    .favoritos-content,
+    .presentar-content,
+    .personal-songs-content {
         text-align: left;
     }
 
     .content_cantos h2 {
         margin-top: 2.5rem;
         margin-bottom: 1rem;
+    }
+
+    .content_cantos h2,
+    .favoritos-content h2,
+    .presentar-content h2,
+    .personal-songs-content h2 {
         text-align: center;
     }
 
     #back-button {
-        position: absolute;
-        top: 5px;
-        left: 10px;
         padding: 6px 12px;
         font-size: 13px;
     }
@@ -912,13 +943,23 @@ form textarea {
     .presentation-content h2 {
         font-size: 2.4rem;
     }
-    
-    .presentation-content p {
-        font-size: 1.6rem;
-    }
 
     .contact-info h3 {
         margin-top: 20px;
         font-size: 1.5rem;
+    }
+
+    #volverPrese-button {
+        font-size: 15px;
+    }
+
+    .presentation-finished p {
+        font-size: 2rem;
+    }
+
+    .contact-info {
+        padding: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
     }
 }

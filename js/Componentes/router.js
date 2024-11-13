@@ -3,6 +3,7 @@ import { loadCantos, loadFavoritos, loadPresentar } from "./contentLoader.js";
 import { loadPersonalSongs, showPersonalSongForm } from "./personalSongs.js";
 import { loadContact } from "./contact.js";
 import { showCommentForm } from "./comments.js";
+import { loadBibleContent } from "./bibleModule.js";
 
 export async function Router() {
     const d = document;
@@ -19,6 +20,8 @@ export async function Router() {
         $main.appendChild(showWelcomeMessage());
     } else if (hash === '#cantos') {
         await loadCantos();
+    } else if (hash === '#biblia') {
+        await loadBibleContent();
     } else if (hash === '#favoritos') {
         loadFavoritos();
     } else if (hash === '#precentacion') {
