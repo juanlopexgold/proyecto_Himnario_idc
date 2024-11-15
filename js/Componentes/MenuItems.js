@@ -3,32 +3,49 @@ export function MenuItems() {
   menuItems.className = 'menu-items';
   menuItems.innerHTML = `
         <div class="dropdown">
-          <p>Opciones</p>
+          <p>Himnario</p>
           <div class="dropdown-content">
-            <a href="#cantos">Cantos</a>
-            <a href="#biblia">Biblia</a>
+            <a href="#cantos">Himnario Completo</a>
+            <a href="#favoritos">Cantos Favoritos</a>
+            <a href="#precentacion">Lista de Precentacion</a>
+            <a href="#ComnunidadCantos">Cantos de la Comunidad</a>
+            <div class="dropdown">
+              <p>Cantos Personales</p>
+              <div class="dropdown-content">
+                <a href="#lista-personales">Lista de cantos Personales</a>
+                <a href="#nuevo-editar">Nuevo o Editar</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="dropdown">
-          <p>Listas</p>
+          <p>Biblia</p>
           <div class="dropdown-content">
-            <a href="#favoritos">Favoritos</a>
-            <a href="#precentacion">Precentacion</a>
+            <a href="#biblia">Biblia MiltiVersion</a>
+            <a href="#favoritosBiblia">Textos Favoritos</a>
+            <a href="#precentacionBiblia">Textos de Precentacion</a>
           </div>
         </div>
         <div class="dropdown">
-          <p>Personales</p>
+          <p>Sermones</p>
           <div class="dropdown-content">
-            <a href="#lista-personales">Lista Personales</a>
-            <a href="#nuevo-editar">Nuevo o Editar</a>
+            <a href="#nuevo-editar">Sermones De Ejemplo</a>
+            <a href="#nuevo-editar">Sermones de la Comunidad</a>
+            <div class="dropdown">
+              <p>Sermones Personales</p>
+              <div class="dropdown-content">
+                <a href="#lista-personales">Lista de sermones Personales</a>
+                <a href="#nuevo-editar">Nuevo o Editar</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="dropdown">
-          <p>Información</p>
+          <p>Otras Opciones</p>
           <div class="dropdown-content">
-            <a href="#contacto">Contacto</a>
             <a href="#comentarios">Comentarios</a>
             <a href="#cofiguracion">Cofiguraciones</a>
+            <a href="#contacto">Contacto</a>
           </div>
         </div>
     `;;

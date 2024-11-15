@@ -1,7 +1,7 @@
 export function Logo() {
     const logo = document.createElement('a');
     logo.className = 'logo';
-    logo.textContent = 'HIMNARIO';
+    logo.textContent = '🛠 IDC-TOOLS';
     logo.href = '#/';
 
     logo.addEventListener('click', (e) => {
