@@ -14,6 +14,19 @@ export function Header() {
         <span></span>
     `;
 
+    const iconos_opcion = document.createElement('div');
+    iconos_opcion.className = 'icon-container';
+    iconos_opcion.classList.add('dropdown-config');
+    iconos_opcion.innerHTML = `
+        <i id="config-icon">🛠</i>
+        <div class="dropdown-content-config">
+            <a href="#" id="user-icon">Iniciar sesión</a>
+            <a href="#" id="toggle-theme">Cambiar a tema oscuro</a>
+            <a href="#" id="customize-background">Personalizar fondo</a>
+            <a href="#" id="change-font-size">Cambiar tamaño de letra</a>
+        </div>
+    `;
+
     const sideMenu = document.createElement('div');
     sideMenu.className = 'side-menu';
     sideMenu.appendChild(MenuItems());
@@ -22,6 +35,7 @@ export function Header() {
     menuBar.appendChild(Logo());
     menuBar.appendChild(MenuItems());
     menuBar.appendChild(Search('MenuBar'));
+    menuBar.appendChild(iconos_opcion);
     menuBar.appendChild(burgerMenu);
     document.body.appendChild(sideMenu);
 

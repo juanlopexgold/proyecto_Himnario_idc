@@ -1,75 +1,139 @@
-// Cargar el archivo biblia.json y mostrar el contenido inicial
 export async function loadBibleContent() {
     try {
-        const response = await fetch('../data/biblia.json'); // Cambia la ruta a donde tengas biblia.json
-        if (!response.ok) throw new Error('Network response was not ok');
+        const response = await fetch('../data/biblia.json'); // Cambia la ruta según tu estructura
+        if (!response.ok) throw new Error('Error al cargar el archivo JSON');
         const bibleData = await response.json();
-
-        // Mostrar la selección inicial: "Antiguo Testamento" y "Nuevo Testamento"
-        displayTestaments(bibleData);
+        initializeUI(bibleData);
     } catch (error) {
-        console.error('Error loading Bible content:', error);
+        console.error('Error al cargar la Biblia:', error);
     }
 }
 
-function displayTestaments(bibleData) {
-    const contentDiv = document.getElementById('main-content');
-    contentDiv.innerHTML = `
-        <h2>Seleccione un Testamento</h2>
-        <ul>
-            <li data-testament="Antiguo Testamento">Antiguo Testamento</li>
-            <li data-testament="Nuevo Testamento">Nuevo Testamento</li>
-        </ul>
-    `;
+function initializeUI(bibleData) {
+    const mainContent = document.getElementById('main-content');
+    mainContent.innerHTML = ''; // Limpiar contenido inicial
 
-    // Agregar eventos para seleccionar cada testamento
-    document.querySelectorAll('[data-testament]').forEach(item => {
-        item.addEventListener('click', () => {
-            const testament = item.getAttribute('data-testament');
-            displayGroups(bibleData[testament], testament);
-        });
+    // Crear menús desplegables dinámicos
+    const dropdowns = ['Idioma', 'Versión', 'Testamento', 'Grupo', 'Libro', 'Capítulo', 'Versículo'];
+    const dropMenus = createDropMenus(dropdowns);
+
+    // Agregar los menús al DOM
+    dropMenus.forEach(menu => mainContent.appendChild(menu.container));
+
+    // Deshabilitar todos los menús excepto el primero
+    dropMenus.slice(1).forEach(menu => (menu.select.disabled = true));
+
+    // Rellenar el primer menú con idiomas
+    populateSelect(dropMenus[0].select, Object.keys(bibleData));
+
+    // Event listeners para flujo de selección
+    dropMenus[0].select.addEventListener('change', () => handleLanguageChange(dropMenus, bibleData));
+    dropMenus[1].select.addEventListener('change', () => handleVersionChange(dropMenus, bibleData));
+    dropMenus[2].select.addEventListener('change', () => handleTestamentChange(dropMenus, bibleData));
+    dropMenus[3].select.addEventListener('change', () => handleGroupChange(dropMenus, bibleData));
+    dropMenus[4].select.addEventListener('change', () => handleBookChange(dropMenus));
+    dropMenus[5].select.addEventListener('change', () => handleChapterChange(dropMenus));
+}
+
+function createDropMenus(names) {
+    return names.map(name => {
+        const container = document.createElement('div');
+        container.innerHTML = `<label>${name}</label>`;
+        const select = document.createElement('select');
+        select.innerHTML = '<option value="" disabled selected>Selecciona una opción</option>';
+        container.appendChild(select);
+        return { container, select };
     });
 }
 
-function displayGroups(groups, testament) {
-    const contentDiv = document.getElementById('main-content');
-    contentDiv.innerHTML = `<h2>Grupos en ${testament}</h2><ul>${Object.keys(groups).map(group => `<li data-group="${group}">${group}</li>`).join('')}</ul>`;
-
-    // Agregar eventos para seleccionar cada grupo
-    document.querySelectorAll('[data-group]').forEach(item => {
-        item.addEventListener('click', () => {
-            const group = item.getAttribute('data-group');
-            displayBooks(groups[group], testament, group);
-        });
+function populateSelect(select, options) {
+    select.innerHTML = '<option value="" disabled selected>Selecciona una opción</option>';
+    options.forEach(option => {
+        const opt = document.createElement('option');
+        opt.value = option;
+        opt.textContent = option;
+        select.appendChild(opt);
     });
 }
 
-function displayBooks(books, testament, group) {
-    const contentDiv = document.getElementById('main-content');
-    contentDiv.innerHTML = `<h2>Libros en ${group} (${testament})</h2><ul>${books.map(book => `<li data-book="${book.name}" data-chapters="${book.chapters}">${book.name}</li>`).join('')}</ul>`;
+function handleLanguageChange(dropMenus, bibleData) {
+    const language = dropMenus[0].select.value;
+    const versionSelect = dropMenus[1].select;
+    const versions = {
+        Español: ['Reina-Valera', 'NVI', 'NTV', 'DHH', 'TLA'],
+        Inglés: ['King James', 'NIV', 'ESV', 'NASB', 'NKJV']
+    };
 
-    // Agregar eventos para seleccionar cada libro
-    document.querySelectorAll('[data-book]').forEach(item => {
-        item.addEventListener('click', () => {
-            const bookName = item.getAttribute('data-book');
-            const chapters = item.getAttribute('data-chapters');
-            displayChapters(bookName, chapters);
-        });
-    });
+    if (versions[language]) {
+        populateSelect(versionSelect, versions[language]);
+        versionSelect.disabled = false;
+    } else {
+        versionSelect.disabled = true;
+    }
+
+    resetDropMenus(dropMenus, 1);
 }
 
-function displayChapters(bookName, chapters) {
-    const contentDiv = document.getElementById('main-content');
-    const chapterList = Array.from({ length: chapters }, (_, i) => `<li data-chapter="${i + 1}">Capítulo ${i + 1}</li>`).join('');
-    contentDiv.innerHTML = `<h2>Capítulos de ${bookName}</h2><ul>${chapterList}</ul>`;
+function handleVersionChange(dropMenus, bibleData) {
+    const version = dropMenus[1].select.value;
 
-    // Agregar eventos para seleccionar cada capítulo
-    document.querySelectorAll('[data-chapter]').forEach(item => {
-        item.addEventListener('click', () => {
-            const chapter = item.getAttribute('data-chapter');
-            fetchVerses(bookName, chapter);
-        });
-    });
+    if (version === 'King James') {
+        dropMenus[2].select.disabled = false;
+        populateSelect(dropMenus[2].select, Object.keys(bibleData['Nuevo Testamento']));
+    } else {
+        // Si no es "King James", mantener los menús desactivados
+        resetDropMenus(dropMenus, 2);
+    }
+}
+
+function handleTestamentChange(dropMenus, bibleData) {
+    const testament = dropMenus[2].select.value;
+    const language = dropMenus[0].select.value;
+    const groupSelect = dropMenus[3].select;
+
+    if (language === 'Inglés') {
+        const testamentData = bibleData['Antiguo Testamento'];
+        populateSelect(groupSelect, Object.keys(testamentData));
+        groupSelect.disabled = false;
+    } else {
+        resetDropMenus(dropMenus, 3);
+    }
+}
+
+function handleGroupChange(dropMenus, bibleData) {
+    const testament = dropMenus[2].select.value;
+    const group = dropMenus[3].select.value;
+    const bookSelect = dropMenus[4].select;
+
+    const testamentData = bibleData[testament];
+    if (testamentData[group]) {
+        const books = testamentData[group];
+        populateSelect(
+            bookSelect,
+            books.map(book => book.name)
+        );
+        bookSelect.disabled = false;
+    } else {
+        resetDropMenus(dropMenus, 4);
+    }
+}
+
+function handleBookChange(dropMenus) {
+    const bookName = dropMenus[4].select.value;
+    const chapterSelect = dropMenus[5].select;
+
+    const chapters = dropMenus[4].select.selectedOptions[0].dataset.chapters || 0;
+    const chapterNumbers = Array.from({ length: chapters }, (_, i) => i + 1);
+
+    populateSelect(chapterSelect, chapterNumbers);
+    chapterSelect.disabled = false;
+}
+
+function handleChapterChange(dropMenus) {
+    const bookName = dropMenus[4].select.value;
+    const chapter = dropMenus[5].select.value;
+
+    fetchVerses(bookName, chapter);
 }
 
 async function fetchVerses(bookName, chapter) {
@@ -85,10 +149,16 @@ async function fetchVerses(bookName, chapter) {
 }
 
 function displayVerses(data) {
-    const contentDiv = document.getElementById('main-content');
+    const mainContent = document.getElementById('main-content');
     const verses = data.verses.map(verse => `<p><strong>${verse.verse}:</strong> ${verse.text}</p>`).join('');
-    contentDiv.innerHTML = `<h2>${data.reference}</h2>${verses}<button id="back-button">◀ Regresar</button>`;
+    mainContent.innerHTML = `<h2>${data.reference}</h2>${verses}<button id="back-button">◀ Regresar</button>`;
 
-    // Agregar evento para regresar
     document.getElementById('back-button').addEventListener('click', loadBibleContent);
+}
+
+function resetDropMenus(dropMenus, startIndex) {
+    for (let i = startIndex; i < dropMenus.length; i++) {
+        dropMenus[i].select.innerHTML = '<option value="" disabled selected>Selecciona una opción</option>';
+        dropMenus[i].select.disabled = true;
+    }
 }

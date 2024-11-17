@@ -5,7 +5,7 @@ export function loadContact() {
     contentDiv.innerHTML = ''; // Limpiar el contenido anterior
     contentDiv.classList.add('contact-content');
     contentDiv.innerHTML = `
-      <h2>Contacto</h2>
+      <h2>Desarrollador</h2>
       <div class="contact-info">
         <img src="img/profile.jpg" alt="Foto de Perfil" class="profile-pic">
         <p><strong>Nombre:</strong> Juan López</p>

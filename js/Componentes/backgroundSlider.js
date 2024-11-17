@@ -1,9 +1,9 @@
 const gradients = [
-    'radial-gradient(circle, #d2b48c, #8b4513)',
-    'radial-gradient(circle, #f5deb3, #a0522d)',
-    'radial-gradient(circle, #deb887, #8b4513)',
-    'radial-gradient(circle, #ffe4c4, #a52a2a)',
-    'radial-gradient(circle, #d2b48c, #5a3d1e)'
+    'radial-gradient(circle, #bdac97, #dfaf8c)',
+    'radial-gradient(circle, #f5deb3, #a3877a)',
+    'radial-gradient(circle, #deb887, #bf977a)',
+    'radial-gradient(circle, #ffe4c4, #ef8080)',
+    'radial-gradient(circle, #d2b48c, #d5a169)'
 ];
 
 let currentIndex = 0;

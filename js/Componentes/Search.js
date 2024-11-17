@@ -9,9 +9,10 @@ export function Search(idSuffix = '') {
             <option value="nombre">Buscar por nombre</option>
         </select>
         <div class="search-box">
-            <i id="search-button${idSuffix}">🎤</i>
+            <i id="search-button${idSuffix}" title="Buscar...">🔍</i>
             <input type="search" id="search-input${idSuffix}" placeholder="Buscar...">
         </div>
+        <i id="micro" title="Buscar por audio">🎤</i>
     `;
 
     searchDiv.querySelector(`#search-button${idSuffix}`).addEventListener('click', startVoiceSearch);

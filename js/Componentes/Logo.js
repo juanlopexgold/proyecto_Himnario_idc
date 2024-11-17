@@ -1,8 +1,23 @@
 export function Logo() {
     const logo = document.createElement('a');
     logo.className = 'logo';
-    logo.textContent = '🛠 IDC-TOOLS';
     logo.href = '#/';
+    logo.innerHTML = `
+        IDC<span class="tool">🛠️</span><span>TOOLS</span>
+    `;
+
+
+
+    // const burgerMenu = document.createElement('div');
+    // burgerMenu.className = 'burger-menu';
+    // burgerMenu.innerHTML = `
+    //     <span></span>
+    //     <span></span>
+    //     <span></span>
+    // `;
+
+    // <a href="" class="logo">IDC<span class="tool">🛠️</span><span>TOOLS</span></a>
+
 
     logo.addEventListener('click', (e) => {
         e.preventDefault();

@@ -20,15 +20,10 @@ export async function loadCantos() {
         contentDiv.innerHTML = ''; // Limpiar el contenido anterior
         contentDiv.classList.add('content_cantos');
 
-
-        // console.log('Data cantos:', data.cantos);
-        // console.log('Favoritos:', favoritos);
-        // console.log('Presentar:', presentar);
-
         const titles = data.cantos.map(canto => {
             if (!canto || !canto.id) { 
                 console.error('Canto inválido:', canto); 
-                return ''; // O puedes manejar el error de otra manera 
+                return '';
             }
             const isFavorited = favoritos.some(fav => fav && fav.id === canto.id);
             const isPresent = presentar.some(pre => pre && pre.id === canto.id);

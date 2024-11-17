@@ -1,0 +1,73 @@
+{
+    "sermones": [
+        {
+            "id": "001",
+            "titulo": "Sermón de la fe",
+            "contenido": {
+                "tema": "La fe como fundamento",
+                "textoClave": "Hebreos 11:1",
+                "introduccion": "La fe es la certeza de lo que se espera...",
+                "desarrollo": {
+                    "punto1": {
+                        "subpuntoA": "La fe en la vida diaria",
+                        "subpuntoB": "Ejemplos prácticos"
+                    },
+                    "punto2": {
+                        "subpuntoA": "La fe en la Biblia",
+                        "subpuntoB": "Historias de fe"
+                    }
+                },
+                "conclusion": {
+                    "subpuntoA": "Vive por fe",
+                    "subpuntoB": "Confía en Dios"
+                }
+            }
+        },
+        {
+            "id": "002",
+            "titulo": "Sermón del amor",
+            "contenido": {
+                "tema": "El amor como mandamiento",
+                "textoClave": "1 Corintios 13:13",
+                "introduccion": "El amor es el mayor de todos...",
+                "desarrollo": {
+                    "punto1": {
+                        "subpuntoA": "Amar a Dios",
+                        "subpuntoB": "Amar al prójimo"
+                    },
+                    "punto2": {
+                        "subpuntoA": "El amor es paciente",
+                        "subpuntoB": "El amor es bondadoso"
+                    }
+                },
+                "conclusion": {
+                    "subpuntoA": "Ama sin límites",
+                    "subpuntoB": "Sigue el ejemplo de Cristo"
+                }
+            }
+        },
+        {
+            "id": "003",
+            "titulo": "Sermón de la esperanza",
+            "contenido": {
+                "tema": "La esperanza en tiempos difíciles",
+                "textoClave": "Romanos 8:24-25",
+                "introduccion": "La esperanza es un ancla del alma...",
+                "desarrollo": {
+                    "punto1": {
+                        "subpuntoA": "Esperanza en las promesas",
+                        "subpuntoB": "Confianza en el futuro"
+                    },
+                    "punto2": {
+                        "subpuntoA": "Esperanza en la eternidad",
+                        "subpuntoB": "Motivación diaria"
+                    }
+                },
+                "conclusion": {
+                    "subpuntoA": "Espera con paciencia",
+                    "subpuntoB": "No pierdas la fe"
+                }
+            }
+        }
+    ]
+}
