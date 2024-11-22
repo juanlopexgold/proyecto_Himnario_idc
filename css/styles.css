@@ -301,6 +301,12 @@ button:hover {
     display: block;
 }
 
+/* Show Dropdown */
+/* .dropdown-content-config.collapsed {
+    display: block;
+} */
+
+
 /* dropdown */
 .dropdown {
     position: relative;
@@ -395,13 +401,15 @@ button:hover {
 
 /* cantos-content */
 .content_cantos,
-.content_sermon {
+.content_sermon,
+.content_BibleMV {
     position: relative;
     text-align: center;
 }
 
 .content_cantos h2,
-.content_sermon h2 {
+.content_sermon h2,
+.content_BibleMV h2 {
     margin-top: 3.6rem;
     margin-bottom: 1.5rem;
 }
@@ -803,6 +811,32 @@ form textarea {
 }
 
 
+
+/* seccion de la biblia */
+#dropdowns-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+}
+
+.dropdown-wrapper{
+    display: flex;  
+    column-gap: 2.1rem;
+}
+
+.dropdown-wrapper label{
+    color: #000;
+    font-size: 1.8rem;
+}
+
+.dropdown-wrapper select{
+    border-radius: .2rem;
+    padding: .5rem;
+    font-size: 1.5rem;
+    background-color: var(--title-ligth);
+    color: var(--color-ligth);
+}
 
 
 

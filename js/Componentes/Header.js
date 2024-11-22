@@ -27,6 +27,14 @@ export function Header() {
         </div>
     `;
 
+
+    // const icono_drop = document.getElementById('config-icon');
+    // const drop_contrnt = document.querySelector('.dropdown-content-config');
+
+    // icono_drop.addEventListener('click', () => {
+    //     drop_contrnt.classList.toggle('collapsed');
+    // });
+
     const sideMenu = document.createElement('div');
     sideMenu.className = 'side-menu';
     sideMenu.appendChild(MenuItems());
